@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<!--start adding your preference objects-->
+    <!--key has to be unique-->
+    <!--for the summary you add the description for the object-->
+    <PreferenceCategory
+        android:title="@string/title_general"
+        app:iconSpaceReserved="false">
+    <EditTextPreference
+        android:key="@string/key_status"
+        android:title="@string/title_status"
+        android:defaultValue="@string/defValue_status"
+        app:iconSpaceReserved="false"
+        app:dialogTitle="Update status"
+        app:useSimpleSummaryProvider="true"
+
+        />
+    <SwitchPreference
+        app:iconSpaceReserved="false"
+        android:title="Auto Reply"
+        android:key="@string/key_auto_reply"
+        android:defaultValue="false"
+        android:summary="Enhance automatic reply to a message"
+        />
+    <ListPreference
+        android:dialogTitle="@string/title_dialog_reply_time"
+        android:key="@string/key_auto_reply_time"
+        android:title="@string/title_auto_reply_time"
+        app:iconSpaceReserved="false"
+        app:useSimpleSummaryProvider="true"
+        android:entries="@array/entries_auto_reply_time"
+        android:entryValues="@array/values_auto_reply_time"
+        />
+    <ListPreference
+        android:dependency="key_auto_reply"
+        android:dialogTitle="Choose Message"
+        android:key="@string/key_auto_reply_msg"
+        android:title="@string/title_auto_reply_msg"
+        app:iconSpaceReserved="false"
+        app:useSimpleSummaryProvider="true"
+        android:entries="@array/pref_auto_reply_messages"
+        android:entryValues="@array/pref_auto_reply_messages"
+        />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="App"
+        app:iconSpaceReserved="false"
+        >
+        <!--preference type object and the checkbox preference consecutively-->
+        <Preference
+            android:key="@string/key_account_settings"
+            android:title="Account Settings"
+            android:summary="Security and Privacy"
+            app:iconSpaceReserved="false"
+            />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="key_auto_download"
+            android:title="Auto Download"
+            android:summary="make automatic downloads when connected to wifi"
+            app:iconSpaceReserved="false"
+            />
+        <SwitchPreference
+            app:iconSpaceReserved="false"
+            android:title="Notifications"
+            android:key="key_new_message"
+            android:defaultValue="true"
+            android:summary="Enhance automatic reply to a message"
+            />
+    </PreferenceCategory>
+    <PreferenceCategory
+        app:iconSpaceReserved="false"
+        android:title="About App">
+        <Preference
+            android:title="App Version"
+            android:summary="3.6.1"
+            android:key="version"
+            app:iconSpaceReserved="false"
+            />
+        <Preference
+            android:key="key_privacy_policy"
+            android:title="Policy Guidelines"
+            app:iconSpaceReserved="false"
+            />
+
+
+    </PreferenceCategory>
+</PreferenceScreen>
